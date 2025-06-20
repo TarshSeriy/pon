@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Поздравление!</title>
+  <style>
+    body {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 50px;
+      font-family: sans-serif;
+    }
+    button {
+      padding: 20px;
+      font-size: 24px;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 10px;
+    }
+    #image {
+      margin-top: 30px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🥳 Хочешь увидеть поздравление?</h1>
+  <button onclick="showImage()">Поздравляю!</button>
+  <div id="image">
+    <img src="https://memi.klev.club/uploads/posts/2024-05/memi-klev-club-kfer-p-memi-muzhik-s-tsvetami-10.jpg" />
+    <p>🎉 Кубарсыч поздравляет! 🎉</p>
+  </div>
+
+  <script>
+    function showImage() {
+      document.getElementById("image").style.display = "block";
+    }
+  </script>
+</body>
+</html>
