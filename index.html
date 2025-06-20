@@ -1,41 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <title>Поздравление!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сюрприз для Даши</title>
   <style>
     body {
-      background: #111;
-      color: white;
+      margin: 0;
+      padding: 0;
+      background-color: #111;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
-      padding: 50px;
-      font-family: sans-serif;
-    }
-    button {
       padding: 20px;
-      font-size: 24px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5em;
+    }
+
+    button {
+      font-size: 1.5rem;
+      padding: 15px 30px;
       background-color: #ff4081;
-      color: white;
       border: none;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #e13370;
+    }
+
+    #image {
+      margin-top: 2em;
+      display: none;
+    }
+
+    #image img {
+      max-width: 100%;
       border-radius: 10px;
     }
-    #image {
-      margin-top: 30px;
-      display: none;
+
+    @media (max-width: 400px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p, button {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>🥳 Хочешь увидеть поздравление?</h1>
-  <button onclick="showImage()">Поздравляю!</button>
+  <h1>🎉 Сюрприз! 🎉</h1>
+  <p>Нажми кнопку, чтобы получить поздравление от легенды</p>
+  <button onclick="document.getElementById('image').style.display = 'block';">Поздравляю!</button>
   <div id="image">
-    <img src="https://memi.klev.club/uploads/posts/2024-05/memi-klev-club-kfer-p-memi-muzhik-s-tsvetami-10.jpg" />
-    <p>🎉 Кубарсыч поздравляет! 🎉</p>
+    <img src="https://media.tenor.com/j9VyGGyHFjYAAAAd/kubarsy-football.gif" alt="Кубарсыч поздравляет">
+    <p style="margin-top: 1em;">🔥 Кубарсыч с фаерами поздравляет тебя, Даша! 🔥</p>
   </div>
-
-  <script>
-    function showImage() {
-      document.getElementById("image").style.display = "block";
-    }
-  </script>
 </body>
 </html>
