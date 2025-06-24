@@ -19,6 +19,8 @@
       text-align: center;
       padding: 20px;
       box-sizing: border-box;
+      overflow: hidden;
+      position: relative;
     }
 
     h1 {
@@ -40,6 +42,7 @@
       color: white;
       cursor: pointer;
       transition: background 0.2s ease;
+      z-index: 10;
     }
 
     button:hover {
@@ -49,6 +52,7 @@
     #image {
       margin-top: 2em;
       display: none;
+      z-index: 10;
     }
 
     #image img {
@@ -65,14 +69,56 @@
         font-size: 1rem;
       }
     }
+
+    /* Фейерверк */
+    .firework {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: #fff;
+      border-radius: 50%;
+      animation: explode 1s ease-out forwards;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--x), var(--y)) scale(0.2);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
   <h1>🎉 Сюрприз! 🎉</h1>
-  <button onclick="document.getElementById('image').style.display = 'block';">Поздравляю!</button>
+  <button onclick="showSurprise()">Поздравляю!</button>
   <div id="image">
     <img src="КУба.png" width="300" />
     <p style="margin-top: 1em;">Feliz Сumpleaños Dasha ❤️🔥</p>
   </div>
+
+  <script>
+    function showSurprise() {
+      document.getElementById('image').style.display = 'block';
+      launchFireworks();
+    }
+
+    function launchFireworks() {
+      for (let i = 0; i < 20; i++) {
+        const f = document.createElement('div');
+        f.className = 'firework';
+        f.style.left = `${window.innerWidth / 2}px`;
+        f.style.top = `${window.innerHeight / 2}px`;
+        f.style.setProperty('--x', `${(Math.random() - 0.5) * 300}px`);
+        f.style.setProperty('--y', `${(Math.random() - 0.5) * 300}px`);
+        document.body.appendChild(f);
+        setTimeout(() => f.remove(), 1000);
+      }
+    }
+  </script>
 </body>
 </html>
+
